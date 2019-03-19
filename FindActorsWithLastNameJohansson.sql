@@ -1,7 +1,6 @@
 #Questions from https://datamastery.gitlab.io/exercises/sakila-queries.html
-# Which actors have the last name ‘Johansson’
+# How many distinct actors last names are there?
 USE sakila;
 
-SELECT *
-FROM actor
-WHERE last_name = "Johansson";
+SELECT COUNT(A.last_name)
+FROM (SELECT DISTINCT last_name FROM actor) AS A;
